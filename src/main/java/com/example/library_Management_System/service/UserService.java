@@ -34,8 +34,8 @@ public class UserService {
         User user = new User();
         user.setName(dto.getName());
         user.setEmail(dto.getEmail());
-        user.setPassword(passwordEncoder.encode(dto.getPassword())); // 🔐 encode
-        user.setRole(Role.USER); // default role
+        user.setPassword(passwordEncoder.encode(dto.getPassword()));
+        user.setRole(Role.USER);
         return user;
     }
 

@@ -29,7 +29,7 @@ public class BookController {
     public List<BookDto> searchBooks(@RequestParam String title) {
         return bookService.searchByTitle(title);
     }
-    @GetMapping("/books/search")
+    @GetMapping("/books/searchByAuthor")
     public List<BookDto> searchAuthor(@RequestParam String author) {
         return bookService.searchByAuthor(author);
     }
