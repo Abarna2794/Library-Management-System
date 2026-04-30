@@ -9,7 +9,7 @@ import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 public class BookDto {
 
 
-
+    private Long id;
         @NotBlank(message = "Title is required")
         private String title;
 
