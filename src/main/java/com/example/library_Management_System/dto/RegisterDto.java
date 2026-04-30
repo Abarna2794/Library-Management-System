@@ -1,6 +1,5 @@
 package com.example.library_Management_System.dto;
 
-import com.example.library_Management_System.entity.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

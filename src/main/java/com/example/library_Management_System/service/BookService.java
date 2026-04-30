@@ -2,7 +2,6 @@ package com.example.library_Management_System.service;
 
 import com.example.library_Management_System.dto.BookDto;
 import com.example.library_Management_System.entity.Book;
-import com.example.library_Management_System.exceptionHandler.BookNotAvailableException;
 import com.example.library_Management_System.exceptionHandler.DuplicateIsbnException;
 import com.example.library_Management_System.repo.BookRepo;
 import org.springframework.beans.factory.annotation.Autowired;

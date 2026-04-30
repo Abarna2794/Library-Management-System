@@ -1,10 +1,5 @@
 package com.example.library_Management_System.dto;
 
-import com.example.library_Management_System.entity.Book;
-import com.example.library_Management_System.entity.User;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-
 import java.util.Date;
 
 public class BorrowDto {

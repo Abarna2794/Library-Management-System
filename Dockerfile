@@ -2,7 +2,7 @@ FROM openjdk:17-jdk-slim
 
 WORKDIR /app
 
-COPY . .
+COPY library-Management-System .
 
 RUN ./mvnw clean package -DskipTests
 

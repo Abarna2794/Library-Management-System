@@ -1,7 +1,6 @@
 package com.example.library_Management_System.controller;
 
 import com.example.library_Management_System.dto.BookDto;
-import com.example.library_Management_System.entity.Book;
 import com.example.library_Management_System.service.BookService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

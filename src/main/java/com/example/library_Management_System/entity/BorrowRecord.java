@@ -2,7 +2,6 @@ package com.example.library_Management_System.entity;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 @Entity

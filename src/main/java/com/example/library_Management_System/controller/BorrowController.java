@@ -1,11 +1,9 @@
 package com.example.library_Management_System.controller;
 
 import com.example.library_Management_System.dto.BorrowDto;
-import com.example.library_Management_System.entity.BorrowRecord;
 import com.example.library_Management_System.service.BorrowService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;

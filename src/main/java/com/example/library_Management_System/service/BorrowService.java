@@ -1,6 +1,5 @@
 package com.example.library_Management_System.service;
 
-import com.example.library_Management_System.dto.BookDto;
 import com.example.library_Management_System.dto.BorrowDto;
 import com.example.library_Management_System.entity.Book;
 import com.example.library_Management_System.entity.BorrowRecord;
@@ -8,10 +7,8 @@ import com.example.library_Management_System.entity.User;
 import com.example.library_Management_System.exceptionHandler.BookNotAvailableException;
 import com.example.library_Management_System.repo.BorrowRecordRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 @Service

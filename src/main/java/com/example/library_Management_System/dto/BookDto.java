@@ -1,21 +1,27 @@
-package com.example.library_Management_System.entity;
+package com.example.library_Management_System.dto;
 
-import com.example.library_Management_System.dto.BookDto;
-import jakarta.persistence.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 
-@Entity
-@Table(name = "book")
-public class Book {
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
 
+public class BookDto {
+
+
+
+        @NotBlank(message = "Title is required")
         private String title;
+
+        @NotBlank(message = "Author is required")
         private String author;
+
+        @NotBlank(message = "ISBN is required")
         private String isbn;
+
+        @Min(value = 1, message = "At least 1 copy required")
         private int availableCopies;
+
 
     public Long getId() {
         return id;
@@ -57,4 +63,3 @@ public class Book {
         this.availableCopies = availableCopies;
     }
 }
-
