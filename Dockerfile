@@ -1,8 +1,8 @@
-FROM openjdk:17-jdk
+FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-COPY library-Management-System .
+COPY . .
 
 RUN ./mvnw clean package -DskipTests
 
