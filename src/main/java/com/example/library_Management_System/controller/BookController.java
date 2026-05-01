@@ -2,6 +2,7 @@ package com.example.library_Management_System.controller;
 
 import com.example.library_Management_System.dto.BookDto;
 import com.example.library_Management_System.service.BookService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -10,7 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-
+@RequestMapping
+@SecurityRequirement(name = "bearerAuth")
 public class BookController {
 
     @Autowired
