@@ -35,7 +35,7 @@ public class UserService {
         user.setName(dto.getName());
         user.setEmail(dto.getEmail());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
-        user.setRole(Role.USER);
+        user.setRole(Role.ADMIN);
         return user;
     }
 
