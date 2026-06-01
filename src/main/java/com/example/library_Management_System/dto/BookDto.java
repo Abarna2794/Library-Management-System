@@ -23,6 +23,8 @@ public class BookDto {
         private int availableCopies;
 
 
+
+
     public Long getId() {
         return id;
     }

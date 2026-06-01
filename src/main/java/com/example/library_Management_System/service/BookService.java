@@ -2,6 +2,7 @@ package com.example.library_Management_System.service;
 
 import com.example.library_Management_System.dto.BookDto;
 import com.example.library_Management_System.entity.Book;
+import com.example.library_Management_System.exceptionHandler.BookNotFoundException;
 import com.example.library_Management_System.exceptionHandler.DuplicateIsbnException;
 import com.example.library_Management_System.repo.BookRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -117,7 +118,7 @@ public class BookService {
     public BookDto getById(Long id) {
 
         Book book = bookRepo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
+                .orElseThrow(() -> new BookNotFoundException(id));
 
         BookDto dto = new BookDto();
         dto.setId(book.getId());
@@ -195,7 +196,7 @@ public class BookService {
     }
     public Book getBookEntityById(Long id) {
         return bookRepo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
+                .orElseThrow(() -> new BookNotFoundException(id));
     }
 
 }

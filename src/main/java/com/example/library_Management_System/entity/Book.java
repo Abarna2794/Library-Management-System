@@ -15,6 +15,10 @@ public class Book {
         private String isbn;
         private int availableCopies;
 
+    public Book() {
+
+    }
+
     public Long getId() {
         return id;
     }
@@ -52,6 +56,14 @@ public class Book {
     }
 
     public void setAvailableCopies(int availableCopies) {
+        this.availableCopies = availableCopies;
+    }
+
+    public Book(Long id, String title, String author, String isbn, int availableCopies) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
         this.availableCopies = availableCopies;
     }
 }
