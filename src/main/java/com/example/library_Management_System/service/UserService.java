@@ -4,11 +4,15 @@ import com.example.library_Management_System.dto.UserDto;
 import com.example.library_Management_System.dto.RegisterDto;
 import com.example.library_Management_System.entity.Role;
 import com.example.library_Management_System.entity.User;
+import com.example.library_Management_System.exceptionHandler.EmailAlreadyExistsException;
 import com.example.library_Management_System.exceptionHandler.UserNotFoundException;
 import com.example.library_Management_System.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+
+
 
 @Service
 public class UserService {
@@ -19,7 +23,6 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-
     private UserDto convertToDto(User user) {
         UserDto dto = new UserDto();
         dto.setId(user.getId());
@@ -29,50 +32,47 @@ public class UserService {
         return dto;
     }
 
-
     private User convertToEntity(RegisterDto dto) {
         User user = new User();
         user.setName(dto.getName());
         user.setEmail(dto.getEmail());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
-        user.setRole(Role.ADMIN);
+        user.setRole(Role.USER);
         return user;
     }
 
-
     public UserDto registerUser(RegisterDto registerDto) {
-
-        // simple validation
+        // validation
         if (registerDto.getEmail() == null || registerDto.getEmail().isEmpty()) {
             throw new RuntimeException("Email cannot be empty");
         }
-
         if (registerDto.getPassword() == null || registerDto.getPassword().isEmpty()) {
             throw new RuntimeException("Password cannot be empty");
         }
 
-        // convert + save
+        // NEW: Check if email already exists
+        if (userRepo.findByEmail(registerDto.getEmail()).isPresent()) {
+            throw new EmailAlreadyExistsException("Email already registered: " + registerDto.getEmail());
+        }
+
         User user = convertToEntity(registerDto);
         User savedUser = userRepo.save(user);
-
         return convertToDto(savedUser);
     }
-
 
     public UserDto getUserById(Long id) {
         User user = userRepo.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("User not found with id: " + id));
-
         return convertToDto(user);
     }
 
-
     public User getUserByEmail(String email) {
         return userRepo.findByEmail(email)
-                .orElseThrow(() -> new  UserNotFoundException("User not found with email: " + email));
+                .orElseThrow(() -> new UserNotFoundException("User not found with email: " + email));
     }
+
     public User getUserEntityById(Long id) {
         return userRepo.findById(id)
-                .orElseThrow(() -> new  UserNotFoundException("User not found with id: " + id));
+                .orElseThrow(() -> new UserNotFoundException("User not found with id: " + id));
     }
 }
